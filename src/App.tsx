@@ -14,6 +14,11 @@ const App = () => {
     });
   };
 
+  const throwError = () => {
+    console.error('throwError()');
+    throw new Error('throwError()');
+  };
+
   return (
     <>
       <div>Search Postal Code</div>
@@ -22,6 +27,7 @@ const App = () => {
         onChange={event => setPostalCode(event.target.value)}
       />
       <button onClick={clickHandler}>検索</button>
+      <button onClick={throwError}>raise Error</button>
 
       <pre>{result}</pre>
     </>
