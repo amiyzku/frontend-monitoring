@@ -14,10 +14,7 @@ Sentry.init({
         /^https:\/\/amiyzku\.github\.io\/frontend-monitoring/,
       ],
     }),
-    Sentry.replayIntegration({
-      maskAllText: false,
-      blockAllMedia: false,
-    }),
+    Sentry.replayIntegration({}),
   ],
   // Performance Monitoring
   tracesSampleRate: 1.0, //  Capture 100% of the transactions
