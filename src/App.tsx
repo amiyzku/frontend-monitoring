@@ -1,16 +1,17 @@
 import { useState } from 'react';
+import Metrics from './Metrics';
 
 const App = () => {
   const [postalCode, setPostalCode] = useState('');
-  const [result, setResult] = useState('');
+  const [body, setBody] = useState('');
 
   const clickHandler = async () => {
-    setResult('');
+    setBody('');
     const baseUrl = 'https://zipcloud.ibsnet.co.jp/api/search';
     const url = `${baseUrl}?zipcode=${postalCode}`;
     await fetch(url, { method: 'GET' }).then(async res => {
       let text = await res.text();
-      setResult(text);
+      setBody(text);
     });
   };
 
@@ -30,7 +31,10 @@ const App = () => {
         Error
       </button>
 
-      <pre>{result}</pre>
+      <pre>{body}</pre>
+
+      <hr />
+      <Metrics />
     </>
   );
 };
