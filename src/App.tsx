@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <>
-      <div>Search Postal Code</div>
+      <h4>Search Postal Code</h4>
       <input
         value={postalCode}
         onChange={event => setPostalCode(event.target.value)}
@@ -25,7 +25,11 @@ const App = () => {
       <button onClick={clickHandler}>検索</button>
       <button
         onClick={() => {
-          throw new Error('Hello world');
+          try {
+            throw new Error('Hello world');
+          } catch (error) {
+            console.error(error);
+          }
         }}
       >
         Error
